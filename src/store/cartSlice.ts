@@ -8,17 +8,24 @@ interface CartItem {
   quantity: number;
 }
 
-interface CartState {
-  items: CartItem[];
-}
+const CART_STORAGE_KEY = "pokemon_cart";
 
-const initialState: CartState = {
-  items: [],
+// Cargar carrito desde localStorage
+const loadCart = (): CartItem[] => {
+  const storedCart = localStorage.getItem(CART_STORAGE_KEY);
+  return storedCart ? JSON.parse(storedCart) : [];
+};
+
+// Guardar carrito en localStorage
+const saveCart = (cart: CartItem[]) => {
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
 };
 
 const cartSlice = createSlice({
   name: "cart",
-  initialState,
+  initialState: {
+    items: loadCart(),
+  },
   reducers: {
     addToCart: (state, action: PayloadAction<CartItem>) => {
       const existingItem = state.items.find(
@@ -29,9 +36,11 @@ const cartSlice = createSlice({
       } else {
         state.items.push({ ...action.payload, quantity: 1 });
       }
+      saveCart(state.items);
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
+      saveCart(state.items);
     },
     updateQuantity: (
       state,
@@ -41,9 +50,11 @@ const cartSlice = createSlice({
       if (item) {
         item.quantity = action.payload.quantity;
       }
+      saveCart(state.items);
     },
     clearCart: (state) => {
       state.items = [];
+      saveCart(state.items);
     },
   },
 });
