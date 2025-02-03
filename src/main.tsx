@@ -5,7 +5,8 @@ import App from "./App.tsx";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PokemonPage from "./pages/PokemonPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -14,7 +15,10 @@ createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
-          <App />
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="pokemon/:name" element={<PokemonPage />} />
+          </Routes>
         </BrowserRouter>
       </QueryClientProvider>
     </Provider>
