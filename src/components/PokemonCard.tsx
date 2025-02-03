@@ -41,7 +41,7 @@ export default function PokemonCard({ name }: { name: string }) {
             ${calculateBasePrice(data).toFixed(2)}
           </p>
         </div>
-        <div className="text-muted-foreground capitalize flex justify-start gap-2 text-xs">
+        <div className="text-white capitalize flex justify-start gap-2 text-xs">
           {data.types.map((type) => (
             <TypeBadge key={type.type.name} type={type.type.name} />
           ))}

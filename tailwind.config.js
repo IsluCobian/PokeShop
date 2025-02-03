@@ -51,22 +51,24 @@ export default {
           5: "hsl(var(--chart-5))",
         },
         // Pokemon types colors
-        fire: "#FDE068", // Amarillo anaranjado
-        water: "#4E81FF", // Azul
-        grass: "#62BC6E", // Verde hierba
-        electric: "#F9E24E", // Amarillo
-        psychic: "#F2A0A1", // Rosa
-        dragon: "#3D7BF0", // Azul intenso
-        ghost: "#5F5F9E", // Morado oscuro
-        fairy: "#F4A6E0", // Rosa claro
-        poison: "#9B5B94", // Violeta
-        bug: "#C9E900", // Verde limón
-        normal: "#A8A77A", // Gris oliva
-        ground: "#EBD69D", // Beige
-        fighting: "#F93D34", // Rojo
-        dark: "#705848", // Marrón oscuro
-        steel: "#B8B8D0", // Gris azulado
-        ice: "#6FB9D2", // Azul hielo
+        bug: "hsl(var(--bug))",
+        dark: "hsl(var(--dark))",
+        dragon: "hsl(var(--dragon))",
+        electric: "hsl(var(--electric))",
+        fairy: "hsl(var(--fairy))",
+        fighting: "hsl(var(--fighting))",
+        fire: "hsl(var(--fire))",
+        flying: "hsl(var(--flying))",
+        ghost: "hsl(var(--ghost))",
+        grass: "hsl(var(--grass))",
+        ground: "hsl(var(--ground))",
+        ice: "hsl(var(--ice))",
+        normal: "hsl(var(--normal))",
+        poison: "hsl(var(--poison))",
+        psychic: "hsl(var(--psychic))",
+        rock: "hsl(var(--rock))",
+        steel: "hsl(var(--steel))",
+        water: "hsl(var(--water))",
       },
     },
   },
