@@ -3,9 +3,15 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "@/store/cartSlice";
 import { ShoppingCart } from "lucide-react";
 import { Pokemon } from "@/types/pokemon";
-import { calculateBasePrice } from "@/lib/utils";
+import { calculateBasePrice, cn } from "@/lib/utils";
 
-export default function AddToCartButton({ pokemon }: { pokemon: Pokemon }) {
+export default function AddToCartButton({
+  pokemon,
+  className,
+}: {
+  pokemon: Pokemon;
+  className?: string;
+}) {
   const dispatch = useDispatch();
 
   const handleAddToCart = (event: React.MouseEvent) => {
@@ -24,7 +30,9 @@ export default function AddToCartButton({ pokemon }: { pokemon: Pokemon }) {
   return (
     <Button
       onClick={handleAddToCart}
-      className="bg-primary text-white hover:bg-primary/80 flex items-center gap-2"
+      size="sm"
+      variant="outline"
+      className={cn("bg-transparent", className)}
     >
       <ShoppingCart size={18} /> Añadir al carrito
     </Button>

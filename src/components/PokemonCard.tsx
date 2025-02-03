@@ -1,8 +1,9 @@
 import { usePokemon } from "@/hooks/usePokemon";
 import { calculateBasePrice, cn, getBgColor } from "@/lib/utils";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AddToCartButton from "./AddCartButton";
 import AddToFavoriteButton from "./AddToFavoriteButton";
+import TypeBadge from "./TypeBadge";
 
 export default function PokemonCard({ name }: { name: string }) {
   const { data, isLoading, error } = usePokemon(name);
@@ -14,7 +15,7 @@ export default function PokemonCard({ name }: { name: string }) {
 
   return (
     <div
-      className="bg-gray-100 p-4 rounded-md shadow-md flex flex-col items-center relative cursor-pointer"
+      className="p-4 rounded-md shadow-md flex flex-col items-center relative cursor-pointer bg-card"
       onClick={() => navigate(`/pokemon/${data.name}`)}
     >
       <div
@@ -25,24 +26,31 @@ export default function PokemonCard({ name }: { name: string }) {
       >
         #{data.id}
       </div>
+      <AddToFavoriteButton pokemon={data} className="absolute top-0 right-0 " />
       <img
         src={data.sprites?.front_default}
         alt={data.name}
-        className="h-20 w-20 object-contain"
+        className="h-24 w-24 object-contain"
       />
-      <div>
-        <p className="text-xl font-semibold tracking-tight capitalize">
-          {data.name}
-          <AddToFavoriteButton pokemon={data} />
-        </p>
-        <div className="text-sm text-muted-foreground capitalize">
-          {data.types.map((type) => type.type.name).join(", ")}
+      <div className="flex flex-col items-start w-full">
+        <div className="w-full flex justify-between items-center">
+          <p className="text-lg font-medium tracking-tight capitalize">
+            {data.name}
+          </p>
+          <p className="font-semibold text-base">
+            ${calculateBasePrice(data).toFixed(2)}
+          </p>
+        </div>
+        <div className="text-muted-foreground capitalize flex justify-start gap-2 text-xs">
+          {data.types.map((type) => (
+            <TypeBadge key={type.type.name} type={type.type.name} />
+          ))}
         </div>
       </div>
-      <p className="font-medium text-lg">
-        💰 {calculateBasePrice(data).toFixed(2)} PokeCoins
-      </p>
-      <AddToCartButton pokemon={data} />
+
+      <div className="flex items-center justify-between w-full mt-3">
+        <AddToCartButton pokemon={data} className="w-full" />
+      </div>
     </div>
   );
 }

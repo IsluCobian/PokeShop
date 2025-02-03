@@ -4,8 +4,15 @@ import { Pokemon } from "@/types/pokemon";
 import { Heart } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
 
-export default function AddToFavoriteButton({ pokemon }: { pokemon: Pokemon }) {
+export default function AddToFavoriteButton({
+  pokemon,
+  className,
+}: {
+  pokemon: Pokemon;
+  className?: string;
+}) {
   const dispatch = useDispatch();
   const favorites = useSelector(
     (state: RootState) => state.favorites.favorites
@@ -18,7 +25,7 @@ export default function AddToFavoriteButton({ pokemon }: { pokemon: Pokemon }) {
   };
   return (
     <Button
-      className=""
+      className={cn(" rounded-full", className)}
       onClick={handleToggleFavorite}
       variant="ghost"
       size="icon"
