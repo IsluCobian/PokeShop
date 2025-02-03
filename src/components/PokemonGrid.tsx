@@ -16,7 +16,7 @@ export default function PokemonGrid() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-4">
         {data?.results.map((pokemon) => (
           <Fragment key={pokemon.name}>
-            <PokemonCard url={pokemon.url} />
+            <PokemonCard name={pokemon.name} />
           </Fragment>
         ))}
       </div>

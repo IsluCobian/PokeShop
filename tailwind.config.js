@@ -50,6 +50,23 @@ export default {
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
         },
+        // Pokemon types colors
+        fire: "#FDE068", // Amarillo anaranjado
+        water: "#4E81FF", // Azul
+        grass: "#62BC6E", // Verde hierba
+        electric: "#F9E24E", // Amarillo
+        psychic: "#F2A0A1", // Rosa
+        dragon: "#3D7BF0", // Azul intenso
+        ghost: "#5F5F9E", // Morado oscuro
+        fairy: "#F4A6E0", // Rosa claro
+        poison: "#9B5B94", // Violeta
+        bug: "#C9E900", // Verde limón
+        normal: "#A8A77A", // Gris oliva
+        ground: "#EBD69D", // Beige
+        fighting: "#F93D34", // Rojo
+        dark: "#705848", // Marrón oscuro
+        steel: "#B8B8D0", // Gris azulado
+        ice: "#6FB9D2", // Azul hielo
       },
     },
   },

@@ -19,16 +19,18 @@ const fetchPokemonList = async (page: number): Promise<PokemonListResponse> => {
   return response.json();
 };
 
-const fetchPokemon = async (pokemonUrl: string): Promise<Pokemon> => {
-  const response = await fetch(pokemonUrl);
+const fetchPokemon = async (pokemonName: string): Promise<Pokemon> => {
+  const response = await fetch(
+    `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+  );
   if (!response.ok) throw new Error("Error al obtener Pokémon");
   return response.json();
 };
 
-export const usePokemon = (pokemonUrl: string) => {
+export const usePokemon = (pokemonName: string) => {
   return useQuery({
-    queryKey: ["pokemon", pokemonUrl],
-    queryFn: () => fetchPokemon(pokemonUrl),
+    queryKey: ["pokemon", pokemonName],
+    queryFn: () => fetchPokemon(pokemonName),
     staleTime: 1000 * 60 * 5, // 5 minutos de caché
   });
 };
