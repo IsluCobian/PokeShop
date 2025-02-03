@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import CartButton from "./CartButton";
+import FavoritesButton from "./FavoritesButton";
 
 export default function Header() {
   return (
@@ -9,7 +10,10 @@ export default function Header() {
           <img src="/pokeshop.webp" alt="PokéShop" className=" h-24" />
         </Link>
       </div>
-      <CartButton />
+      <nav className="flex items-center justify-center gap-4">
+        <CartButton />
+        <FavoritesButton />
+      </nav>
     </header>
   );
 }

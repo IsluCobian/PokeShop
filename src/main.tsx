@@ -10,6 +10,7 @@ import "./index.css";
 import CartPage from "./pages/CartPage.tsx";
 import PokemonPage from "./pages/PokemonPage.tsx";
 import { store } from "./store/store";
+import FavoritesPage from "./pages/FavoritesPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/" element={<App />} />
             <Route path="pokemon/:name" element={<PokemonPage />} />
             <Route path="cart" element={<CartPage />} />
+            <Route path="favorites" element={<FavoritesPage />} />
             <Route path="*" element={<div>Not Found</div>} />
           </Routes>
         </BrowserRouter>
