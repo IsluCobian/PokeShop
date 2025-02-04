@@ -41,7 +41,7 @@ export default function TypesFilterSelector({
       type="multiple"
       value={selectedTypes}
       onValueChange={handleToggleChange}
-      className={cn("flex flex-wrap gap-2", className)}
+      className={cn("flex flex-wrap gap-2 justify-start", className)}
     >
       {POKEMON_TYPES.map((type) => {
         const borderColor = getBorderColor(type);
