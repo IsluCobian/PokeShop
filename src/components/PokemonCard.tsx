@@ -55,12 +55,12 @@ export default function PokemonCard({ name }: { name: string }) {
   );
 }
 
-function PokemonCardSkeleton() {
+export function PokemonCardSkeleton() {
   return (
-    <div className="bg-gray-100 p-4 rounded-md shadow-md animate-pulse flex flex-col items-center">
-      <div className="w-20 h-20 bg-gray-300 rounded-full mb-2"></div>
-      <div className="h-4 bg-gray-300 rounded-md w-24 mb-2"></div>
-      <div className="h-3 bg-gray-300 rounded-md w-16"></div>
+    <div className="p-4 rounded-md shadow-md flex flex-col items-center relative cursor-pointer bg-card justify-between">
+      <div className="w-20 h-20 bg-gray-300 rounded-full mb-2 animate-pulse"></div>
+      <div className="h-4 bg-gray-300 rounded-md w-24 mb-2 animate-pulse"></div>
+      <div className="h-3 bg-gray-300 rounded-md w-16 animate-pulse"></div>
     </div>
   );
 }

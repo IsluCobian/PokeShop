@@ -2,7 +2,7 @@ import { usePokemonList } from "@/hooks/usePokemon";
 import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
 import PaginationControls from "./PaginationControls";
-import PokemonCard from "./PokemonCard";
+import PokemonCard, { PokemonCardSkeleton } from "./PokemonCard";
 import { Fragment } from "react/jsx-runtime";
 import { useEffect, useState } from "react";
 import TypesFilterSelector from "./TypesFilterSelector";
@@ -69,11 +69,7 @@ export default function PokemonGrid() {
         />
       </div>
       <TypesFilterSelector onChange={handleTypeChange} className="my-4" />
-      {isLoading && (
-        <div className="flex items-center justify-center w-full h-56">
-          <Loader2 className="animate-spin" />
-        </div>
-      )}
+      {isLoading && <PokemonGridSkeleton />}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-4">
         {paginatedPokemon.map((pokemon) => (
           <Fragment key={pokemon.name}>
@@ -82,6 +78,18 @@ export default function PokemonGrid() {
         ))}
       </div>
       <PaginationControls totalItems={filteredPokemon.length ?? 0} />
+    </div>
+  );
+}
+
+function PokemonGridSkeleton() {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-4">
+      {[...Array(20)].map((_, index) => (
+        <Fragment key={index}>
+          <PokemonCardSkeleton />
+        </Fragment>
+      ))}
     </div>
   );
 }
