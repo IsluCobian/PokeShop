@@ -25,7 +25,7 @@ createRoot(document.getElementById("root")!).render(
             <GridBackground />
             <Header />
             <Routes>
-              <Route path="/" element={<App />} />
+              <Route path="/PokeShop/" element={<App />} />
               <Route path="pokemon/:name" element={<PokemonPage />} />
               <Route path="cart" element={<CartPage />} />
               <Route path="favorites" element={<FavoritesPage />} />
