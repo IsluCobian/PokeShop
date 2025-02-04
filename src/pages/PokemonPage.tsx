@@ -6,6 +6,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { usePokemon } from "@/hooks/usePokemon";
 import { calculateBasePrice, getStatColor } from "@/lib/utils";
+import { addHistoryEntry } from "@/store/historySlice";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
 export default function PokemonPage() {
@@ -13,6 +15,13 @@ export default function PokemonPage() {
   if (!params.name) return null;
 
   const { data, isLoading, error } = usePokemon(params.name);
+
+  const dispatch = useDispatch();
+
+  // Add the Pokémon name to the history when the data is successfully loaded
+  if (data && params.name) {
+    dispatch(addHistoryEntry(params.name));
+  }
 
   if (isLoading) return <p className="text-center">Cargando...</p>;
   if (error)

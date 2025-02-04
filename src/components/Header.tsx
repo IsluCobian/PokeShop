@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import CartButton from "./CartButton";
 import FavoritesButton from "./FavoritesButton";
+import HistoryButton from "./HistoryButton";
 
 export default function Header() {
   return (
@@ -13,6 +14,7 @@ export default function Header() {
       <nav className="flex items-center justify-center gap-4">
         <CartButton />
         <FavoritesButton />
+        <HistoryButton />
       </nav>
     </header>
   );
