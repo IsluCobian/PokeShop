@@ -1,3 +1,4 @@
+import AbilityTag from "@/components/AbilityTag";
 import AddToCartButton from "@/components/AddCartButton";
 import AddToFavoriteButton from "@/components/AddToFavoriteButton";
 import TypeBadge from "@/components/TypeBadge";
@@ -22,7 +23,7 @@ export default function PokemonPage() {
 
   return (
     <div className="relative flex flex-col items-start justify-center lg:flex-row w-full p-5 container rounded-md mx-auto">
-      <div className="relative w-full lg:max-w-lg bg-card p-6 rounded-md mb-4 lg:mb-0 lg:mr-8  flex items-center justify-center aspect-square">
+      <div className="relative w-full lg:max-w-xl bg-card p-6 rounded-md mb-4 lg:mb-0 lg:mr-8  flex items-center justify-center aspect-square">
         <img
           src={data.sprites?.other?.["official-artwork"]?.front_default}
           alt={`Imagen de ${data.name}`}
@@ -62,7 +63,13 @@ export default function PokemonPage() {
             </div>
           ))}
         </div>
-        <hr className="my-6 w-full" />
+        <p className="text-lg font-semibold text-left mt-4">Abilities:</p>
+        <div className="flex flex-wrap gap-2">
+          {data.abilities.map((ability) => (
+            <AbilityTag ability={ability.ability.name} />
+          ))}
+        </div>
+        <hr className="my-8 w-full" />
         <p className="text-3xl font-bold text-left">
           <span>$</span>
           {calculateBasePrice(data).toFixed(2)}
@@ -70,9 +77,9 @@ export default function PokemonPage() {
         <div className="w-full flex items-end h-full">
           <AddToCartButton
             pokemon={data}
-            className={`mt-4 w-full h-12 text-white font-semibold ${buttonVariants(
-              { variant: "default" }
-            )}`}
+            className={`${buttonVariants({
+              variant: "default",
+            })} mt-4 w-full h-12 text-white font-semibold `}
           />
         </div>
       </div>
