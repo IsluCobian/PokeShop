@@ -25,13 +25,15 @@ export default function AddToFavoriteButton({
   };
   return (
     <Button
-      className={cn(" rounded-full", className)}
+      className={cn(
+        " rounded-full items-center justify-center flex",
+        className
+      )}
       onClick={handleToggleFavorite}
       variant="ghost"
       size="icon"
     >
       <Heart
-        size={18}
         className={isFavorite ? "text-red-500 fill-red-500" : "text-gray-400"}
       />
     </Button>

@@ -50,3 +50,15 @@ export const calculateBasePrice = (pokemon: Pokemon) => {
 
   return basePrice;
 };
+
+export const getStatColor = (statName: string) => {
+  const colors: Record<string, string> = {
+    hp: "bg-red-500",
+    attack: "bg-orange-500",
+    defense: "bg-blue-500",
+    "special-attack": "bg-purple-500",
+    "special-defense": "bg-green-500",
+    speed: "bg-yellow-500",
+  };
+  return colors[statName] || "bg-gray-500"; // Color por defecto
+};

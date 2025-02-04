@@ -13,9 +13,9 @@ export default function CartButton() {
 
   return (
     <Link to="/cart" className="relative">
-      <ShoppingCart size={28} className="text-primary" />
+      <ShoppingCart size={28} />
       {totalItems > 0 && (
-        <Badge className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+        <Badge className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full pointer-events-none">
           {totalItems}
         </Badge>
       )}
