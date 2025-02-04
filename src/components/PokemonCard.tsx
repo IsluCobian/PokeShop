@@ -15,7 +15,7 @@ export default function PokemonCard({ name }: { name: string }) {
 
   return (
     <div
-      className="p-4 rounded-md shadow-md flex flex-col items-center relative cursor-pointer bg-card"
+      className="p-4 rounded-md shadow-md flex flex-col items-center relative cursor-pointer bg-card justify-between"
       onClick={() => navigate(`/pokemon/${data.name}`)}
     >
       <div

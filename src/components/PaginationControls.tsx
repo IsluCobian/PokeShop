@@ -36,7 +36,10 @@ export default function PaginationControls({
       <PaginationContent>
         {shouldShowPrev && (
           <PaginationItem>
-            <PaginationPrevious onClick={() => dispatch(prevPage())} />
+            <PaginationPrevious
+              className="cursor-pointer hover:bg-accent hover:text-accent-foreground"
+              onClick={() => dispatch(prevPage())}
+            />
           </PaginationItem>
         )}
 
@@ -66,7 +69,10 @@ export default function PaginationControls({
 
         {shouldShowNext && (
           <PaginationItem>
-            <PaginationNext onClick={() => dispatch(nextPage())} />
+            <PaginationNext
+              className="cursor-pointer hover:bg-accent hover:text-accent-foreground"
+              onClick={() => dispatch(nextPage())}
+            />
           </PaginationItem>
         )}
       </PaginationContent>

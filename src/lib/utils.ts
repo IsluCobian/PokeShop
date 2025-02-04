@@ -23,12 +23,62 @@ const bgcolors = {
   steel: "bg-steel",
 } as const;
 
+const bordercolors = {
+  fire: "border-fire",
+  water: "border-water",
+  grass: "border-grass",
+  electric: "border-electric",
+  psychic: "border-psychic",
+  ice: "border-ice",
+  dragon: "border-dragon",
+  dark: "border-dark",
+  fairy: "border-fairy",
+  normal: "border-normal",
+  fighting: "border-fighting",
+  flying: "border-flying",
+  poison: "border-poison",
+  ground: "border-ground",
+  rock: "border-rock",
+  bug: "border-bug",
+  ghost: "border-ghost",
+  steel: "border-steel",
+} as const;
+
+const stateOnColors = {
+  fire: "data-[state=on]:bg-fire",
+  water: "data-[state=on]:bg-water",
+  grass: "data-[state=on]:bg-grass",
+  electric: "data-[state=on]:bg-electric",
+  psychic: "data-[state=on]:bg-psychic",
+  ice: "data-[state=on]:bg-ice",
+  dragon: "data-[state=on]:bg-dragon",
+  dark: "data-[state=on]:bg-dark",
+  fairy: "data-[state=on]:bg-fairy",
+  normal: "data-[state=on]:bg-normal",
+  fighting: "data-[state=on]:bg-fighting",
+  flying: "data-[state=on]:bg-flying",
+  poison: "data-[state=on]:bg-poison",
+  ground: "data-[state=on]:bg-ground",
+  rock: "data-[state=on]:bg-rock",
+  bug: "data-[state=on]:bg-bug",
+  ghost: "data-[state=on]:bg-ghost",
+  steel: "data-[state=on]:bg-steel",
+};
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
 export function getBgColor(type: string) {
   return bgcolors[type as keyof typeof bgcolors];
+}
+
+export function getBorderColor(type: string) {
+  return bordercolors[type as keyof typeof bordercolors];
+}
+
+export function getStateOnColor(type: string) {
+  return stateOnColors[type as keyof typeof stateOnColors];
 }
 
 export const calculateBasePrice = (pokemon: Pokemon) => {
