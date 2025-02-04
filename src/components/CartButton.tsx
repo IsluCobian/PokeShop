@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "./ui/button";
 
 export default function CartButton() {
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -12,10 +14,16 @@ export default function CartButton() {
   );
 
   return (
-    <Link to="/cart" className="relative">
-      <ShoppingCart size={28} />
+    <Link
+      to="/cart"
+      className={cn(
+        buttonVariants({ variant: "ghost" }),
+        "relative rounded-full px-3"
+      )}
+    >
+      <ShoppingCart size={24} />
       {totalItems > 0 && (
-        <Badge className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full pointer-events-none">
+        <Badge className="absolute -top-1 -right-1 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full pointer-events-none">
           {totalItems}
         </Badge>
       )}
