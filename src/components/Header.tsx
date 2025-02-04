@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import CartButton from "./CartButton";
 import FavoritesButton from "./FavoritesButton";
 import HistoryButton from "./HistoryButton";
+import ModeToggle from "./ModeToggle";
 
 export default function Header() {
   return (
@@ -15,6 +16,7 @@ export default function Header() {
         <CartButton />
         <FavoritesButton />
         <HistoryButton />
+        <ModeToggle />
       </nav>
     </header>
   );

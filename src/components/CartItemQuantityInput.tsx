@@ -17,7 +17,7 @@ export default function CartItemQuantityInput({ item }: { item: CartItem }) {
   };
 
   return (
-    <div className="flex items-center bg-white p-0.5 rounded-md">
+    <div className="flex items-center bg-card p-0.5 rounded-md">
       <Button
         variant={"ghost"}
         size={"icon"}
@@ -29,7 +29,7 @@ export default function CartItemQuantityInput({ item }: { item: CartItem }) {
       <input
         type="number"
         value={item.quantity}
-        className="w-8 h-8 text-center border-none text-lg [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+        className="bg-card w-8 h-8 text-center border-none text-lg [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
       />
       <Button variant={"ghost"} size={"icon"} onClick={handleIncrease}>
         <Plus size={16} />

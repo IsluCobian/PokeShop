@@ -12,6 +12,7 @@ import PokemonPage from "./pages/PokemonPage.tsx";
 import { store } from "./store/store";
 import FavoritesPage from "./pages/FavoritesPage.tsx";
 import HistoryPage from "./pages/HistoryPage.tsx";
+import { ThemeProvider } from "./components/theme-provider.tsx";
 
 const queryClient = new QueryClient();
 
@@ -19,18 +20,20 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <GridBackground />
-          <Header />
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="pokemon/:name" element={<PokemonPage />} />
-            <Route path="cart" element={<CartPage />} />
-            <Route path="favorites" element={<FavoritesPage />} />
-            <Route path="history" element={<HistoryPage />} />
-            <Route path="*" element={<div>Not Found</div>} />
-          </Routes>
-        </BrowserRouter>
+        <ThemeProvider>
+          <BrowserRouter>
+            <GridBackground />
+            <Header />
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="pokemon/:name" element={<PokemonPage />} />
+              <Route path="cart" element={<CartPage />} />
+              <Route path="favorites" element={<FavoritesPage />} />
+              <Route path="history" element={<HistoryPage />} />
+              <Route path="*" element={<div>Not Found</div>} />
+            </Routes>
+          </BrowserRouter>
+        </ThemeProvider>
       </QueryClientProvider>
     </Provider>
   </StrictMode>

@@ -65,7 +65,7 @@ export default function PokemonGrid() {
           placeholder="Buscar Pokémon..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full sm:w-1/2 p-2 border border-gray-300 rounded-md"
+          className="w-full sm:w-1/2 p-2 border border-border bg-card rounded-md"
         />
       </div>
       <TypesFilterSelector onChange={handleTypeChange} className="my-4" />
