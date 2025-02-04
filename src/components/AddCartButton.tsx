@@ -20,6 +20,7 @@ export default function AddToCartButton({
       addToCart({
         id: pokemon.id,
         name: pokemon.name,
+        types: pokemon.types.map((type) => type.type.name),
         image: pokemon.sprites?.front_default,
         price: calculateBasePrice(pokemon),
         quantity: 1,

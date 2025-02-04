@@ -11,7 +11,12 @@ export default function RemoveFromCartButton({ item }: { item: CartItem }) {
   };
 
   return (
-    <Button onClick={handleRemoveFromCart} variant="ghost" size="icon">
+    <Button
+      onClick={handleRemoveFromCart}
+      variant="ghost"
+      size="icon"
+      className="hover:text-red-500"
+    >
       <Trash2 size={18} />
     </Button>
   );
