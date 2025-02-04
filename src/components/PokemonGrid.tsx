@@ -1,12 +1,11 @@
 import { usePokemonList } from "@/hooks/usePokemon";
 import { RootState } from "@/store/store";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Fragment } from "react/jsx-runtime";
 import PaginationControls from "./PaginationControls";
 import PokemonCard, { PokemonCardSkeleton } from "./PokemonCard";
-import { Fragment } from "react/jsx-runtime";
-import { useEffect, useState } from "react";
 import TypesFilterSelector from "./TypesFilterSelector";
-import { Loader2 } from "lucide-react";
 
 const ITEMS_PER_PAGE = 20;
 
@@ -18,7 +17,7 @@ interface Pokemon {
 
 export default function PokemonGrid() {
   const page = useSelector((state: RootState) => state.pagination.page);
-  const { data, isLoading, error } = usePokemonList();
+  const { data, isLoading } = usePokemonList();
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredPokemon, setFilteredPokemon] = useState<Pokemon[]>([]);

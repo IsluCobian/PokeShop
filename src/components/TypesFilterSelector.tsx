@@ -1,4 +1,4 @@
-import { cn, getBgColor, getBorderColor, getStateOnColor } from "@/lib/utils";
+import { cn, getBorderColor, getStateOnColor } from "@/lib/utils";
 import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group";
 import { useState } from "react";
 
@@ -50,7 +50,7 @@ export default function TypesFilterSelector({
           <ToggleGroupItem
             key={type}
             value={type}
-            className={`capitalize text-xs font-normal rounded-full py-0.5 h-6 border text-current ${borderColor} ${stateOnColor}`}
+            className={`capitalize text-xs font-normal rounded-full py-0.5 h-6 border text-current ${borderColor} ${stateOnColor} hover:bg-card/90 hover:text-current`}
           >
             {type}
           </ToggleGroupItem>
