@@ -7,7 +7,7 @@ import ModeToggle from "./ModeToggle";
 export default function Header() {
   return (
     <header className=" relative flex flex-col md:flex-row gap-2 md:gap-0 items-center justify-between container mx-auto">
-      <Link to="/PokeShop/">
+      <Link to="/">
         <img
           src="./pokeshop.webp"
           alt="PokéShop"
