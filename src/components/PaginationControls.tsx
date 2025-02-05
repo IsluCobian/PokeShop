@@ -52,7 +52,6 @@ export default function PaginationControls({
         {pagesToShow.map((num) => (
           <PaginationItem key={num}>
             <PaginationLink
-              href="#"
               isActive={page === num}
               onClick={() => dispatch(setPage(num))}
             >
