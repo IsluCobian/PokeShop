@@ -99,10 +99,10 @@ Se usó **ShadCN** en lugar de librerías como MUI o Bootstrap porque:
 
 ## 🔧 Mejoras Potenciales
 
-**Mejoras de Diseño**:
-
 - **Feedback Visual**: Indicadores de éxito (por ejemplo, animaciones de "añadido al carrito").
 
 - **Accesibilidad**: Mejorar el contraste y la navegación con teclado.
 
 - **Scroll Infinito para Listados de Productos**: Considerar implementar scroll infinito para cargar más Pokémon conforme el usuario se desplaza por la página. Aumentando el engagement del usuario.
+
+- **Optimización de Componentes Reutilizables**: Refactorizar componentes para que sean más genéricos y reutilizables en diferentes partes de la aplicación, lo que facilita la extensión y mantenimiento del código.
