@@ -30,6 +30,7 @@ export default function PokemonCard({ name }: { name: string }) {
       <img
         src={data.sprites?.front_default}
         alt={data.name}
+        loading="lazy"
         className="h-24 w-24 object-contain"
       />
       <div className="flex flex-col items-start w-full">
