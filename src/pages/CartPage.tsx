@@ -1,13 +1,17 @@
 import CartItem from "@/components/CartItem";
+import CheckoutModal from "@/components/CheckoutModal";
 import ClearCartButton from "@/components/ClearCartButton";
 import { Button } from "@/components/ui/button";
 import { RootState } from "@/store/store";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export default function CartPage() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const cart = useSelector((state: RootState) => state.cart);
+  const [open, setOpen] = useState(false);
 
   const typeMultipliers: Record<string, number> = {
     legendary: 2.5,
@@ -63,6 +67,18 @@ export default function CartPage() {
 
   const totalToPay = totalWithMultipliers - totalDiscount;
 
+  const handleCheckout = () => {
+    if (totalToPay === 0) {
+      return;
+    }
+    setOpen(true);
+    dispatch({ type: "cart/clearCart" });
+  };
+
+  const onOpenChange = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="relative flex flex-col items-start justify-center w-full h-full lg:flex-row gap-2">
       <div className="flex flex-col w-full p-4 pt-0">
@@ -107,7 +123,9 @@ export default function CartPage() {
           <span>Total a Pagar</span>
           <p className="text-xl font-medium">${totalToPay.toFixed(2)}</p>
         </div>
-        <Button className="w-full">Finalizar Pedido</Button>
+        <Button className="w-full" onClick={handleCheckout}>
+          Finalizar Pedido
+        </Button>
         <Button
           className="w-full"
           variant="outline"
@@ -116,6 +134,7 @@ export default function CartPage() {
           Seguir Comprando
         </Button>
       </div>
+      <CheckoutModal open={open} onOpenChange={onOpenChange} />
     </div>
   );
 }
