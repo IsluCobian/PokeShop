@@ -34,7 +34,11 @@ export default function AddToFavoriteButton({
       size="icon"
     >
       <Heart
-        className={isFavorite ? "text-red-500 fill-red-500" : "text-gray-400"}
+        className={
+          isFavorite
+            ? "text-red-500 fill-red-500 animate-hearth-on"
+            : "text-gray-400"
+        }
       />
     </Button>
   );

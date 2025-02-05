@@ -70,6 +70,19 @@ export default {
         steel: "hsl(var(--steel))",
         water: "hsl(var(--water))",
       },
+      keyframes: {
+        "hearth-on": {
+          "0%": {
+            transform: "scale(0)",
+          },
+          "20%": { transform: "scale(0.5)" },
+          "50%": { transform: "scale(1.3)" },
+          "100%": { transform: "scale(1)" },
+        },
+      },
+      animation: {
+        "hearth-on": "hearth-on 0.4s ",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
