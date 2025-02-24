@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
 import { useEffect, useState } from "react";
+import FloatingCartAlert from "./FloatingCartAlert";
 
 export default function CartButton() {
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -20,33 +21,36 @@ export default function CartButton() {
   useEffect(() => {
     if (totalItems > prevTotalItems) {
       setIsAnimating(true);
-      setTimeout(() => setIsAnimating(false), 500);
+      setTimeout(() => setIsAnimating(false), 1000);
     }
     setPrevTotalItems(totalItems);
   }, [totalItems, prevTotalItems]);
 
   return (
-    <Link
-      to="/cart"
-      className={cn(
-        buttonVariants({ variant: "ghost" }),
-        "relative rounded-full px-3"
-      )}
-    >
-      <ShoppingCart size={24} />
-      {totalItems > 0 && (
-        <>
-          <span
-            className={cn(
-              "absolute -top-1 -right-1 bg-red-600 w-5 h-5 rounded-full pointer-events-none",
-              isAnimating && "animate-ping"
-            )}
-          />
-          <Badge className="absolute -top-1 -right-1 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full pointer-events-none">
-            {totalItems}
-          </Badge>
-        </>
-      )}
-    </Link>
+    <>
+      <Link
+        to="/cart"
+        className={cn(
+          buttonVariants({ variant: "ghost" }),
+          "relative rounded-full px-3"
+        )}
+      >
+        <ShoppingCart size={24} />
+        {totalItems > 0 && (
+          <>
+            <span
+              className={cn(
+                "absolute -top-1 -right-1 bg-red-600 w-5 h-5 rounded-full pointer-events-none",
+                isAnimating && "animate-ping"
+              )}
+            />
+            <Badge className="absolute -top-1 -right-1 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full pointer-events-none">
+              {totalItems}
+            </Badge>
+          </>
+        )}
+      </Link>
+      <FloatingCartAlert triggerAnimation={isAnimating} />
+    </>
   );
 }

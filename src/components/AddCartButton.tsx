@@ -33,7 +33,7 @@ export default function AddToCartButton({
       onClick={handleAddToCart}
       size="sm"
       variant="outline"
-      className={cn("bg-transparent", className)}
+      className={cn("bg-transparent active:scale-95", className)}
     >
       <ShoppingCart size={18} /> Añadir al carrito
     </Button>

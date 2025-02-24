@@ -79,9 +79,24 @@ export default {
           "50%": { transform: "scale(1.3)" },
           "100%": { transform: "scale(1)" },
         },
+        "bubble-up": {
+          "0%": {
+            transform: "translateY(0)",
+            opacity: 0,
+          },
+          "50%": {
+            transform: "translateY(-10px)",
+            opacity: 1,
+          },
+          "100%": {
+            transform: "translateY(-20px)",
+            opacity: 0,
+          },
+        },
       },
       animation: {
         "hearth-on": "hearth-on 0.4s ",
+        "bubble-up": "bubble-up 0.6s",
       },
     },
   },
